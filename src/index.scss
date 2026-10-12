@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+    
+.inter_font{font-family: 'Inter', sans-serif;}
+.playfair_font{font-family: "Plus Jakarta Sans", sans-serif;}
+:root{
+  --primary-font-family: 'Inter', sans-serif;
+  --secondary-font-family: "Plus Jakarta Sans", sans-serif;
+  --theme-color-yellow: #f6e05e;
+  --theme-color-light: #edf2f7;
+  --theme-color-blue: #3182ce;
+  --text-color: #2d3748;
+  --header-height: 3.75rem;
+  --white: #ffffff;
+}
+*{  margin: 0; padding: 0; box-sizing: border-box; font-family: var(--primary-font-family);}
+body{ line-height:1.5; }
+html{ font-size:16px; scroll-padding-top:10rem}
+.theme_color_yellow{color:var(--theme-color-yellow)}
+.font10{font-size:.625rem}
+.font11{font-size:.688rem}
+.font12{font-size:.75rem}
+.font13{font-size:.813rem}
+.font14{font-size:.875rem}
+.font15{font-size:.938rem}
+.font16{font-size:1rem}
+.font17{font-size:1.063rem}
+.font18{font-size:1.125rem}
+.font19{font-size:1.188rem}
+.font20{font-size:1.25rem}
+.font21{font-size:1.313rem}
+.font22{font-size:1.375rem}
+.font23{font-size:1.438rem}
+.font24{font-size:1.5rem}
+.font25{font-size:1.563rem}
+.font26{font-size:1.625rem}
+.font27{font-size:1.688rem}
+.font28{font-size:1.75rem}
+.font29{font-size:1.813rem}
+.font30{font-size:1.875rem}
+.font31{font-size:1.938rem}
+.font32{font-size:2rem}
+.font33{font-size:2.063rem}
+.font34{font-size:2.125rem}
+.font35{font-size:2.188rem}
+.font36{font-size:2.25rem}
+.font37{font-size:2.313rem}
+.font38{font-size:2.375rem}
+.font39{font-size:2.438rem}
+.font40{font-size:2.5rem}
+.font45{font-size:2.813rem}
+.font46{font-size:2.875rem}
+.font48{font-size:3rem}
+.font49{font-size:3.063rem}
+.font50{font-size:3.125rem}
+.font54{font-size:3.375rem}
+.font55{font-size:3.438rem}
+.font58{font-size:3.625rem}
+.font60{font-size:3.75rem}
+.font63{font-size:3.938rem}
+.font64{font-size:4rem}
+.font65{font-size:4.063rem}
+.font74{font-size:4.625rem}
+.font80{font-size:5rem}
+.font88{font-size:5.5rem}
+.font108{font-size:6.75rem}
+.fw100{font-weight:100!important}
+.fw200{font-weight:200!important}
+.fw300{font-weight:300!important}
+.fw400{font-weight:400!important}
+.fw500{font-weight:500!important}
+.fw600{font-weight:600!important}
+.fw700{font-weight:700!important}
+.fw800{font-weight:800!important}
+.fw900{font-weight:900!important}
+.color_white{color: #ffffff !important}
+.color_black{color: #000000 !important}
+h1,h2,h3,h4,h5,h6{font-family: var(--secondary-font-family);}
+// .color_light_blue{color:var(--theme-color-light)!important}
+// .color_theme_color_blue{color:var(--theme-color-blue)!important}
+.text_color{color:var(--text-color)}
+.common_padding{padding-block:3rem}
+.container{max-width: 125rem; margin: 0 auto;}
+@media (max-width: 125rem) {
+  .container { padding-inline: 2rem; }
+}
+
+
+.cmn_txt_bg {
+  background: linear-gradient(
+    to right,
+    red 50%,
+    white 50%
+  );
+  background-size: 200% 100%;
+  background-position: right bottom;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: background-position 0.5s ease;
+}
+
+.cmn_txt_bg:hover {
+  background-position: left bottom;
+}
