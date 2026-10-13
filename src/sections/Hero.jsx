@@ -59,7 +59,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="hero_section_main_container" style={{backgroundImage: `url(/hero_image.png)`}}>
+    <section ref={heroRef} className="hero_section_main_container" style={{backgroundImage: `url(/hero_image.jpg)`}}>
         <div className="hero_content_container">
             <div className="hero_top_content">
                 <div className="hero_top_left">
