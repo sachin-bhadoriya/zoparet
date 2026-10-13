@@ -1,6 +1,36 @@
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+
 const Navbar = () => {
+  const navRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      tl.from(".nav_links_container li", {
+        y: -20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0, 
+      });
+
+      tl.from(".logo_main", {
+        y: -30,
+        opacity: 0,
+        duration: 0.8,
+      }, "+=0.2");
+    }, navRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <nav>
+    <nav ref={navRef}>
         <div className="logo_main">Zoparet</div>
         <ul className="nav_links_container">
             <li><a className="cmn_txt_bg" href="#">Projects</a></li>
