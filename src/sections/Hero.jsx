@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from "react";
-import { FaCircleRadiation } from "react-icons/fa6";
+import SvgIcon from "../components/SvgIcon";
 import gsap from "gsap";
 
 const Hero = () => {
@@ -63,7 +63,7 @@ const Hero = () => {
         <div className="hero_content_container">
             <div className="hero_top_content">
                 <div className="hero_top_left">
-                    <span className="top_tag_line"><FaCircleRadiation />  汉语; 漢語;</span>
+                    <span className="top_tag_line"><SvgIcon name="half_logo"/> Innovation Beyond Limits</span>
                     <div className="design_ag">Design Agency</div>
                 </div>
                 <div className="hero_top_right">
