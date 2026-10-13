@@ -12,18 +12,19 @@ const Navbar = () => {
         },
       });
 
-      tl.from(".nav_links_container li", {
+      gsap.from(".nav_links_container li", {
         y: -20,
         opacity: 0,
         duration: 0.6,
         stagger: 0, 
       });
 
-      tl.from(".logo_main", {
-        y: -30,
+      gsap.from(".logo_main", {
+        y: -20,
         opacity: 0,
-        duration: 0.8,
-      }, "+=0.2");
+        duration: 0.6,
+        stagger: 0,
+      });
     }, navRef);
 
     return () => ctx.revert();
