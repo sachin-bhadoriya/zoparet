@@ -96,7 +96,7 @@ useLayoutEffect(() => {
           <div className="hero_top_content">
             <div className="hero_top_left">
                 <div className="hero_tag_line_container">
-                  <SvgIcon name="half_logo" className="half_logo" />
+                  <SvgIcon name="banner_blink" className="banner_blink" />
                   <span className="top_tag_line">
                     Innovation Beyond Limits
                   </span>
