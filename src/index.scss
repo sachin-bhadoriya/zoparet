@@ -92,7 +92,7 @@ html{ font-size:16px; scroll-padding-top:10rem}
 .fw900{font-weight:900!important}
 .color_white{color: #ffffff !important}
 .color_black{color: #000000 !important}
-h1,h2,h3,h4,h5,h6{font-family: var(--secondary-font-family);}
+h1,h2,h3,h4,h5,h6, h1 *, h2 *, h3 * {font-family: var(--secondary-font-family);}
 // .color_light_blue{color:var(--theme-color-light)!important}
 // .color_theme_color_blue{color:var(--theme-color-blue)!important}
 .text_color{color:var(--text-color)}
@@ -135,6 +135,15 @@ h1,h2,h3,h4,h5,h6{font-family: var(--secondary-font-family);}
   background-position: left bottom;
 }
 
+.cmn_txt_bg.common_bottom_text{transition: background-position 2s ease;}
+
 .nav_logo {
     width: 9rem;
 }
+
+:root{
+  --white-text-color: #E6EADE;
+}
+.common_heading{font-size: 5rem; color: var(--white-text-color); text-transform: uppercase; letter-spacing: -0.3rem;}
+.common_para{font-size: 1rem; color: var(--white-text-color); text-transform: uppercase; font-weight: 700;}
+.common_bottom_text{font-size: 5rem; font-weight: 700; text-decoration: none; display: block; font-family: var(--secondary-font-family); width: fit-content; margin: 0 auto;}

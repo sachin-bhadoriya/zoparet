@@ -27,6 +27,8 @@ const Hero = () => {
         const heroTopRightMain = heroRef.current.querySelectorAll(".hero_top_right_main");
         const lineInner = heroRef.current.querySelectorAll(".line_inner span");
         const mouseTextFollower = heroRef.current.querySelectorAll(".mouse_text_follower");
+        const heroBottomLeftContent = heroRef.current.querySelector(".hero_bottom_left_content");
+        const heroTopContent = heroRef.current.querySelector(".hero_top_content");
 
         gsap.set(bgImage, {opacity: 0, scale: 1.2});
         gsap.set(webCanvas, {opacity: 0});
@@ -50,6 +52,10 @@ const Hero = () => {
         tl.to(heroTopRightMain, { opacity:1, y:0, stagger:0.13, ease: "power3.inOut", duration: 1.3, delay: -1.5});
         tl.to(webCanvas, { opacity:1, ease: "power3.inOut", delay: -1.5});
         tl.to(mouseTextFollower, { opacity:1, ease: "power3.inOut", delay: -1.5});
+
+        // Scroll Trigger
+        gsap.to(heroBottomLeftContent, {scrollTrigger: {trigger: heroBottomLeftContent, toggleActions: 'restart none reverse none',scrub: true, start: "top center"}, y: 200, })
+        gsap.to(heroTopContent, {scrollTrigger: {trigger: heroTopContent, toggleActions: 'restart none reverse none',scrub: true, start: "top 75px",}, y: 200, duration: 30, })
 
       }, heroRef);
 
