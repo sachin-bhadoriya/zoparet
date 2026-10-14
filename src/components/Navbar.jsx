@@ -6,28 +6,37 @@ const Navbar = () => {
   const navRef = useRef(null);
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        defaults: {
-          ease: "power3.out",
-        },
-      });
+    const nav = navRef.current;
 
-      tl.from(".nav_links_container li", {
+    const updateHeaderHeight = () => {
+      if (nav) document.body.style.setProperty("--header-height",`${nav.getBoundingClientRect().height}px`);
+    };
+
+    updateHeaderHeight();
+    const resizeObserver = new ResizeObserver(updateHeaderHeight);
+    resizeObserver.observe(nav);
+
+    const ctx = gsap.context(() => {
+      gsap.from(".nav_links_container li", {
         y: -20,
         opacity: 0,
         duration: 0.6,
         stagger: 0, 
       });
 
-      tl.from(".logo_main", {
-        y: -30,
+      gsap.from(".logo_main", {
+        y: -20,
         opacity: 0,
-        duration: 0.8,
-      }, "+=0.2");
+        duration: 0.6,
+        stagger: 0,
+      });
     }, navRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      resizeObserver.disconnect();
+      document.body.style.removeProperty("--header-height");
+    };
   }, []);
 
   return (
