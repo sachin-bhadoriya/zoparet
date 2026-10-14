@@ -183,6 +183,8 @@ const HolesPlate = () => {
       pointer.targetInfluence = 0;
     }
     pointerTarget.addEventListener('pointerleave', leavePointer);
+    window.addEventListener('scroll', leavePointer, { passive: true });
+    window.addEventListener('blur', leavePointer);
 
     function renderGrid() {
       if (disposed) return;
@@ -292,6 +294,8 @@ const HolesPlate = () => {
       pointerTarget.removeEventListener('pointerenter', updatePointer);
       pointerTarget.removeEventListener('pointermove', updatePointer);
       pointerTarget.removeEventListener('pointerleave', leavePointer);
+      window.removeEventListener('scroll', leavePointer);
+      window.removeEventListener('blur', leavePointer);
       if (window.updateGrid === resizeGrid) {
         if (previousUpdateGrid) window.updateGrid = previousUpdateGrid;
         else delete window.updateGrid;

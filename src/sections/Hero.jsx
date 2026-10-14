@@ -4,8 +4,12 @@ import MouseTextFollower from "../components/MouseTextFollower";
 import SvgIcon from "../components/SvgIcon";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+// Higher values make the background drift further behind the hero content.
+const PARALLAX_STRENGTH = 0.25;
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -49,7 +53,36 @@ const Hero = () => {
 
       }, heroRef);
 
-      return () => ctx.revert();
+      const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let parallaxContext;
+      const setupParallax = () => {
+        parallaxContext?.revert();
+        parallaxContext = undefined;
+        if (media.matches) return;
+
+        parallaxContext = gsap.context(() => {
+          gsap.fromTo(".holes_plate", { y: 0 }, {
+            y: () => heroRef.current.offsetHeight * PARALLAX_STRENGTH,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroRef.current,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          });
+        }, heroRef);
+      };
+
+      setupParallax();
+      media.addEventListener("change", setupParallax);
+
+      return () => {
+        media.removeEventListener("change", setupParallax);
+        parallaxContext?.revert();
+        ctx.revert();
+      };
     }, []);
 
   return (
