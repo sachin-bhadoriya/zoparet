@@ -1,4 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
+import HolesPlate from "../components/HolesPlate";
+import MouseTextFollower from "../components/MouseTextFollower";
 import SvgIcon from "../components/SvgIcon";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -88,7 +90,8 @@ useLayoutEffect(() => {
   return (
     <section className="hero_section_container">
       <div ref={heroRef} className="hero_section_main_container">
-        <img className="hero_bg_image" src="/hero_image.png" alt="Hero" />
+        <HolesPlate />
+        <MouseTextFollower />
         <div className="hero_content_container">
           <div className="hero_top_content">
             <div className="hero_top_left">
