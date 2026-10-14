@@ -68,7 +68,7 @@ nav {
         position: relative;
         width: 100%;
         min-height: 100dvh;
-        z-index: 1;
+        z-index: 3;
         padding: 0.5rem 2rem;
         padding-top: calc(var(--header-height) + 0.5rem);
         display: flex;
@@ -118,6 +118,7 @@ nav {
                 font-weight: 700;
                 letter-spacing: -2px;
                 line-height: 1;
+                color: var(--theme-100);
             }
         }
 
@@ -130,13 +131,17 @@ nav {
             padding-left: 2rem;
             .header_line_mask{font-family: var(--secondary-font-family);}
 
-            span {
+            .hero_top_right_span {
                 position: relative;
                 font-size: 0.8rem;
                 font-weight: 700;
                 letter-spacing: -1px;
                 display: block;
                 margin-bottom: 0.5rem;
+                overflow: hidden;
+                & span{
+                    display: inline-block;
+                }
             }
 
             .hero_top_right_main {
@@ -156,6 +161,7 @@ nav {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                overflow: hidden;
 
                 .zopa_svg {
                     fill: var(--theme-color);
@@ -193,13 +199,17 @@ nav {
             letter-spacing: -5px;
             font-family: var(--secondary-font-family);
             color: var(--theme-50);
+            overflow: hidden;
+            span {
+                display: inline-block;
+            }
         }
 
-        .line_inner:first-child {
+        .line_inner:first-child span{
             color: var(--theme-color);
         }
 
-        .line_inner:nth-child(2) {
+        .line_inner:nth-child(2) span{
             background: linear-gradient(0deg,
                     var(--theme-50) 35%,
                     var(--theme-color) 100%);
@@ -210,7 +220,7 @@ nav {
             color: transparent;
         }
 
-        .line_inner:last-child {
+        .line_inner:last-child span{
             color:  var(--theme-50);
         }
 

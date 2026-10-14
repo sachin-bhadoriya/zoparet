@@ -17,19 +17,9 @@ const Navbar = () => {
     resizeObserver.observe(nav);
 
     const ctx = gsap.context(() => {
-      gsap.from(".nav_links_container li", {
-        y: -20,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0, 
-      });
-
-      gsap.from(".logo_main", {
-        y: -20,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0,
-      });
+      gsap.set(nav, {opacity: 0, yPercent: -100});
+      const tl = gsap.timeline();
+      tl.to(nav, {opacity: 1, yPercent: 0, ease: "power2.out", delay: 0.5});
     }, navRef);
 
     return () => {
