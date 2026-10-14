@@ -80,11 +80,11 @@ const Hero = () => {
 
           <h1 className="hero_bottom_left_content">
             <svg
-              viewBox="0 0 1100 255"
+              viewBox="0 0 1100 264"
               preserveAspectRatio="xMinYMin meet"
               className="hero_svg"
             >
-              <foreignObject x="0" y="0" width="1100" height="255">
+              <foreignObject x="0" y="0" width="1100" height="264">
                 <p className="line_inner"><span>OUR BRANDS</span></p>
                 <p className="line_inner"><span>JUST REFUSE</span></p>
                 <p className="line_inner"><span>TO BLEND IN</span></p>
