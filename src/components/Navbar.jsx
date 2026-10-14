@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef } from "react";
+import SvgIcon from "../components/SvgIcon";
 import gsap from "gsap";
 
 const Navbar = () => {
@@ -31,7 +32,7 @@ const Navbar = () => {
 
   return (
     <nav ref={navRef}>
-        <div className="logo_main">Zoparet</div>
+        <div className="logo_main"><SvgIcon name="long_logo" className="nav_logo"/></div>
         <ul className="nav_links_container">
             <li><a className="cmn_txt_bg" href="#">Projects</a></li>
             <li><a className="cmn_txt_bg" href="#">About</a></li>

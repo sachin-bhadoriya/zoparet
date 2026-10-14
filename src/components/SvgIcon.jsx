@@ -9,6 +9,16 @@ const svgFiles = import.meta.glob(
   }
 );
 
+const svgSources = import.meta.glob("../assets/svg/*.svg", {
+  query: "?raw",
+  import: "default",
+});
+
+const scaleDimension = (value, factor) =>
+  Number.isFinite(Number(value))
+    ? Number(value) * factor
+    : `calc(${value} * ${factor})`;
+
 const SvgIcon = ({
   name,
   size = 24,
@@ -18,19 +28,24 @@ const SvgIcon = ({
   className = "",
   ...props
 }) => {
-  const [Icon, setIcon] = useState(null);
+  const [loaded, setLoaded] = useState(null);
 
   useEffect(() => {
     let active = true;
 
-    setIcon(null);
+    setLoaded(null);
 
     const loader = svgFiles[`../assets/svg/${name}.svg`];
 
     if (loader) {
-      loader().then((module) => {
+      Promise.all([loader(), svgSources[`../assets/svg/${name}.svg`]()]).then(([Icon, source]) => {
+        const svg = new DOMParser().parseFromString(source, "image/svg+xml").documentElement;
+        const viewBox = svg.getAttribute("viewBox")?.trim().split(/[\s,]+/).map(Number);
+        const nativeWidth = viewBox?.[2] ?? parseFloat(svg.getAttribute("width"));
+        const nativeHeight = viewBox?.[3] ?? parseFloat(svg.getAttribute("height"));
+        const ratio = nativeWidth > 0 && nativeHeight > 0 ? nativeWidth / nativeHeight : 1;
         if (active) {
-          setIcon(() => module);
+          setLoaded({ Icon, ratio });
         }
       });
     } else {
@@ -42,14 +57,18 @@ const SvgIcon = ({
     };
   }, [name]);
 
-  if (!Icon) return null;
+  if (!loaded) return null;
+
+  const { Icon, ratio } = loaded;
+  const iconHeight = height ?? (width != null ? scaleDimension(width, 1 / ratio) : size);
+  const iconWidth = width ?? scaleDimension(iconHeight, ratio);
 
   return (
     <Icon
-      width={width ?? size}
-      height={height ?? size}
+      width={iconWidth}
+      height={iconHeight}
       color={color}
-      className={className}
+      className={`zopa_svg ${className}`}
       {...props}
     />
   );

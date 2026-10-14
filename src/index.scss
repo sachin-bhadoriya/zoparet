@@ -9,7 +9,6 @@
   --theme-color-light: #edf2f7;
   --theme-color-blue: #3182ce;
   --text-color: #2d3748;
-  --header-height: 3.75rem;
   --white: #ffffff;
 }
 *{  margin: 0; padding: 0; box-sizing: border-box; font-family: var(--primary-font-family);}
@@ -80,6 +79,7 @@ h1,h2,h3,h4,h5,h6{font-family: var(--secondary-font-family);}
 .text_color{color:var(--text-color)}
 .common_padding{padding-block:3rem}
 .container{max-width: 125rem; margin: 0 auto;}
+.zopa_svg{height:auto;}
 @media (max-width: 125rem) {
   .container { padding-inline: 2rem; }
 }
@@ -103,4 +103,8 @@ h1,h2,h3,h4,h5,h6{font-family: var(--secondary-font-family);}
 
 .cmn_txt_bg:hover {
   background-position: left bottom;
+}
+
+.nav_logo {
+    width: 9rem;
 }
