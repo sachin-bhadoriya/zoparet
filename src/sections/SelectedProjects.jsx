@@ -2,12 +2,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const imageArr = [
-  { img: "/holes-plate/bg_image.png", title: "Project One" },
-  { img: "/holes-plate/bg_image.png", title: "Project Two" },
-  { img: "/holes-plate/bg_image.png", title: "Project Three" },
-  { img: "/holes-plate/bg_image.png", title: "Project Four" },
-  { img: "/holes-plate/bg_image.png", title: "Project Five" },
-  { img: "/holes-plate/bg_image.png", title: "Project Six" },
+  { img: "https://framerusercontent.com/images/yFq1hEIGI4Fa9Ku0ZGzjrQ1hue0.jpg?width=712&height=549", title: "Project One" },
+  { img: "https://framerusercontent.com/images/uTMpgfqdqyzGJrPIR55FV0pbqI.jpg?width=894&height=674", title: "Project Two" },
+  { img: "https://framerusercontent.com/images/R8Jxht81smjKYyLQuxtF8TzJpzk.jpg?width=596&height=449", title: "Project Three" },
+  { img: "https://framerusercontent.com/images/aOq0ruSInv3tVbZ8lHAnEwJOKw.jpg?width=630&height=474", title: "Project Four" },
+  { img: "https://framerusercontent.com/images/jvdk89zl6RqytV9HJMdgZRdnM.jpg?width=1058&height=797", title: "Project Five" },
+  { img: "https://framerusercontent.com/images/6ymL5FuLDt0uC2MJXYyn3x7CDZs.jpg?width=712&height=547", title: "Project Six" },
 ];
 
 const SelectedProjects = () => {
@@ -28,7 +28,9 @@ const SelectedProjects = () => {
       gsap.set(images, { scale: 1 });
       gsap.set(infos, { opacity: 0 });
 
-      const ease = "elastic.out(0.5,0.3)";
+      const ease = "elastic.out(2,1.9)";
+      const ease2 = "elastic.out(1,0.3)";
+      const cardDuration = 1
 
       const cleanups = cards.map((card) => {
         const row = card.parentElement;
@@ -38,9 +40,9 @@ const SelectedProjects = () => {
           // Width: hovered card grows within its row
           rowCards.forEach((item) => {
             gsap.to(item, {
-              flexGrow: item === card ? 2 : 1,
-              duration: 0.65,
-              ease,
+              flexGrow: item === card ? 1.8 : 1,
+              duration: 1,
+              ease: "elastic.out(1,0.9)",
               overwrite: "auto",
             });
           });
@@ -48,9 +50,9 @@ const SelectedProjects = () => {
           // Height: hovered row grows, other rows shrink
           rows.forEach((r) => {
             gsap.to(r, {
-              flexGrow: r === row ? 1.4 : 1,
-              duration: 0.65,
-              ease: "power3.out",
+              flexGrow: r === row ? 2 : 1,
+              duration: 1,
+              ease: "elastic.out(1,0.9)",
               overwrite: "auto",
             });
           });
