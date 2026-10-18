@@ -260,51 +260,49 @@ nav {
 .our_client_home{
     background-color: #fff;
 
-    // 1) Wrapper: perspective lives here, centers the 1px pivot point
+   /* Wrapper: perspective + the drag area */
     .client_logo_slider_wrapper {
-        position: relative;
-        width: 100%;
-        height: 400px;
-        // margin: 7rem 0;
-        perspective: 420px;
-        perspective-origin: 50% 50%;
-        transform-style: preserve-3d;   // keep the chain unbroken
+    position: relative;
+    width: 100%;
+    height: 400px;
+    perspective: 420px;
+    perspective-origin: 50% 50%;
+    cursor: grab;
+    touch-action: pan-y;      /* horizontal swipe rotates, vertical still scrolls */
+    user-select: none;
     }
 
-    // 2) Container: the 1px pivot that spins the whole ring
+    .client_logo_slider_wrapper.is_dragging {
+    cursor: grabbing;
+    }
+
+    /* Ring pivot: GSAP rotates this */
     .client_logo_slider_container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 1px;
-        height: 1px;
-        transform-style: preserve-3d;   // children keep their own 3D positions
-        pointer-events: none;
-        animation: client_logo_spin 20s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 1px;
+    transform-style: preserve-3d;
+    pointer-events: none;
     }
 
-    // 3) Each logo: absolute at the pivot, then moved out by its inline 3D transform
+    /* Each logo is placed by its inline transform */
     .client_logo_container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 200px;
-        transform-origin: center center;
-        transform-style: preserve-3d;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    pointer-events: none;
     }
 
-    @keyframes client_logo_spin {
-        from { transform: rotateY(0deg); }
-        to   { transform: rotateY(360deg); }
+    .client_logo_container img {
+    width: 100%;
+    height: auto;
+    display: block;
     }
 }
