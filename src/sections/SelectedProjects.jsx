@@ -1,5 +1,9 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaArrowRight } from "react-icons/fa";
+
+gsap.registerPlugin( ScrollTrigger);
 
 const imageArr = [
   { img: "https://framerusercontent.com/images/yFq1hEIGI4Fa9Ku0ZGzjrQ1hue0.jpg?width=712&height=549", title: "Project One" },
@@ -16,6 +20,21 @@ const SelectedProjects = () => {
   useEffect(() => {
     const section = sectionRef.current;
     const mm = gsap.matchMedia();
+    const contentContainer = sectionRef.current.querySelector('.content_container')
+    const projectGridContainer = sectionRef.current.querySelector('.selected_project_grid_image_container')
+    const commonTxtBtn = sectionRef.current.querySelector('.common_bottom_text')
+
+    // const tl = gsap.timeline()
+
+
+    gsap.set(contentContainer,{yPercent: 50, opacity: 0})
+    gsap.set(projectGridContainer,{yPercent: 50, opacity: 0, scale: 0,})
+    gsap.set(commonTxtBtn,{yPercent: 50, opacity: 0})
+
+    gsap.to(contentContainer, {scrollTrigger: {trigger: contentContainer, start: "top 90%", }, yPercent: 0, opacity: 1, duration: 1.5, })
+    gsap.to(projectGridContainer, {scrollTrigger: {trigger: contentContainer, start: "top 80%", }, yPercent: 0, opacity: 1, duration: 1.5, scale: 1, })
+    gsap.to(commonTxtBtn, {scrollTrigger: {trigger: commonTxtBtn, start: "top 90%", }, yPercent: 0, opacity: 1, duration: 1, })
+    // tl.to(contentPara, { yPercent: 0, opacity: 1, duration: 1,  })
 
     mm.add("(min-width: 769px)", () => {
       const rows = gsap.utils.toArray(".selected_project_row", section);
@@ -29,8 +48,8 @@ const SelectedProjects = () => {
       gsap.set(infos, { opacity: 0 });
 
       const ease = "elastic.out(2,1.9)";
-      const ease2 = "elastic.out(1,0.3)";
-      const cardDuration = 1
+      // const ease2 = "elastic.out(1,0.3)";
+      // const cardDuration = 1
 
       const cleanups = cards.map((card) => {
         const row = card.parentElement;
@@ -123,7 +142,7 @@ const SelectedProjects = () => {
             </div>
           ))}
         </div>
-        <a href="" className="common_bottom_text cmn_txt_bg">More Projects</a>
+        <a href="#" className="common_bottom_text cmn_txt_bg">More Projects <FaArrowRight /> </a>
       </div>
     </section>
   );

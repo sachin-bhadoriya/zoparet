@@ -1,4 +1,5 @@
 import Hero from "../sections/Hero"
+import OurClient from "../sections/OurClient"
 import SelectedProjects from "../sections/SelectedProjects"
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <>
         <Hero />
         <SelectedProjects />
+        <OurClient />
     </>
   )
 }
