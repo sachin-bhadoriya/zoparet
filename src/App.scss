@@ -306,3 +306,15 @@ nav {
     display: block;
     }
 }
+
+
+
+// common big text style
+.common_big_text_heading_main_container{font-family: var(--secondary-font-family); font-size: 5.625rem; font-weight: 700; line-height: 1; letter-spacing: -4.5px;
+    .first_line{color: #adadad;border-bottom: 1px solid #adadad;}
+    .second_line{padding-left: 6.25rem;color: #adadad;border-bottom: 1px solid #adadad;}
+    .third_line{padding-left: 12.5rem;color: #262a2d;border-bottom: 1px solid #adadad;}
+    .forth_line{padding-left: 6.25rem;color: #262a2d;}
+}
+
+// common section tag line

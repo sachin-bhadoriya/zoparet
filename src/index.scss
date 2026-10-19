@@ -98,6 +98,8 @@ h1,h2,h3,h4,h5,h6, h1 *, h2 *, h3 * {font-family: var(--secondary-font-family);}
 .text_color{color:var(--text-color)}
 .common_padding{padding-block:3rem}
 .container{max-width: 125rem; margin: 0 auto;}
+.second_container{max-width: 93.75rem; margin: 0 auto;}
+
 .zopa_svg{height:auto;}
 @media (min-width: 125rem) {
   .container { padding-inline: 2rem; }
