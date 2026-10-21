@@ -1,5 +1,4 @@
 import smallVectorIcon from '../assets/svg/small_vector_icon.svg';
-import SvgIcon from "./SvgIcon";
 
 const CommonHeadingBigText = () => {
     return (
@@ -10,7 +9,10 @@ const CommonHeadingBigText = () => {
                     <span>Section</span>
                 </div>
                 <div className="top_right_text">
-                    <SvgIcon name="banner_blink" className="banner_blink" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="auto" viewBox="0 0 1512 1177" fill="none">
+                        <circle cx="1053.5" cy="588.5" r="458.5" fill="#97A87A"/>
+                        <circle cx="588.5" cy="588.5" r="523.5" fill="#000" stroke="white" stroke-width="130"/>
+                    </svg>
                     <span className="top_tag_line"> Innovation Beyond Limits </span>
                 </div>
             </div>
