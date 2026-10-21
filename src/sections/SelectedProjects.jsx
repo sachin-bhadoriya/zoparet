@@ -21,19 +21,28 @@ const SelectedProjects = () => {
     const section = sectionRef.current;
     const mm = gsap.matchMedia();
     const contentContainer = sectionRef.current.querySelector('.content_container')
+    const commonHeading = sectionRef.current.querySelector('.content_container .common_heading')
+    const commonPara = sectionRef.current.querySelector('.content_container .common_para')
     const projectGridContainer = sectionRef.current.querySelector('.selected_project_grid_image_container')
     const commonTxtBtn = sectionRef.current.querySelector('.common_bottom_text')
 
-    // const tl = gsap.timeline()
+    const tl = gsap.timeline({
+       scrollTrigger: {
+        trigger: contentContainer,
+        start: "top 90%",
+      }
+    })
 
 
-    gsap.set(contentContainer,{yPercent: 50, opacity: 0})
+    gsap.set(commonHeading,{yPercent: 50, opacity: 0})
+    gsap.set(commonPara,{yPercent: 100, opacity: 0})
     gsap.set(projectGridContainer,{yPercent: 50, opacity: 0, scale: 0,})
-    gsap.set(commonTxtBtn,{yPercent: 50, opacity: 0})
+    // gsap.set(commonTxtBtn,{yPercent: 50, opacity: 0})
 
-    gsap.to(contentContainer, {scrollTrigger: {trigger: contentContainer, start: "top 90%", }, yPercent: 0, opacity: 1, duration: 1.5, })
-    gsap.to(projectGridContainer, {scrollTrigger: {trigger: contentContainer, start: "top 80%", }, yPercent: 0, opacity: 1, duration: 1.5, scale: 1, })
-    gsap.to(commonTxtBtn, {scrollTrigger: {trigger: commonTxtBtn, start: "top 90%", }, yPercent: 0, opacity: 1, duration: 1, })
+    tl.to(commonHeading, { yPercent: 0, opacity: 1, duration: 0.5, })
+    tl.to(commonPara, { yPercent: 0, opacity: 1, duration: 0.5, })
+    gsap.to(projectGridContainer, {scrollTrigger: {trigger: contentContainer, start: "top 60%", }, yPercent: 0, opacity: 1, duration: 1, scale: 1, })
+    // gsap.to(commonTxtBtn, {scrollTrigger: {trigger: commonTxtBtn, start: "top 90%", }, yPercent: 0, opacity: 1, duration: 1, })
     // tl.to(contentPara, { yPercent: 0, opacity: 1, duration: 1,  })
 
     mm.add("(min-width: 769px)", () => {

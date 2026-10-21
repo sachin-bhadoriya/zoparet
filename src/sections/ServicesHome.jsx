@@ -6,7 +6,7 @@ const ServicesHome = () => {
     <>
     <section className="common_padding">
         <div className="second_container">
-            <CommonHeadingBigText />
+            <CommonHeadingBigText sectionName={"Services"} tagLine={"Turning Ideas into form."} firstLine={"WE"} secondLine={"BUILD BRANDS."} thirdLine={"THEN WE GIVE THEM"} forthLine={"SOMEWHERE TO LIVE"} />
         </div>
     </section>
     </>

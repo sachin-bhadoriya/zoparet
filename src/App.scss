@@ -67,17 +67,22 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 
 // common big text style
 .common_big_text_heading_main_container{font-family: var(--secondary-font-family); font-size: 5.625rem; font-weight: 700; line-height: 1; letter-spacing: -4.5px;
-    .first_line{color: #adadad;border-bottom: 1px solid #adadad;}
-    .second_line{padding-left: 6.25rem;color: #adadad;border-bottom: 1px solid #adadad;}
-    .third_line{padding-left: 12.5rem;color: #262a2d;border-bottom: 1px solid #adadad;}
-    .forth_line{padding-left: 6.25rem;color: #262a2d;}
+    .first_line {border-bottom: 1px solid #adadad;}
+    .second_line {border-bottom: 1px solid #adadad;}
+    .third_line {border-bottom: 1px solid #adadad;}
+    // .forth_line {}
+    .first_line span{color: #adadad;}
+    .second_line span{padding-left: 6.25rem;color: #adadad;}
+    .third_line span{padding-left: 12.5rem;color: #262a2d;}
+    .forth_line span{padding-left: 6.25rem;color: #262a2d;}
 }
 
 // common section tag line
-.section_top_elem{display: flex; justify-content: space-between; align-items: end; color: #000; margin-bottom: 2rem;
-    .top_left_text{display: flex; gap: 0.5rem; align-items: center; color: #000;}
-    .top_left_text img{position: relative; max-width: 1.5rem;}
-    .top_left_text img::after{position: absolute; bottom: 0; width: 100%; height: 1px; background-color: #adadad; content: ''; left: 0;}
-    .top_right_text {display: flex; align-items: center; gap: 0.5rem;}
-    .top_left_text span { font-size: 1.2rem; font-weight: 500; color: #292d30; }
+.section_top_elem{display: flex; justify-content: space-between; align-items: end; color: #000; margin-bottom: 4rem;
+    .top_left_text{position: relative; display: flex; gap: 0.5rem; align-items: center; color: #000;}
+    .top_left_text img{width: 1.5rem;}
+    .top_left_text::after{position: absolute; bottom: -0.8rem; left: 0; content: ''; width: 1.5rem; height: 2px; background-color: #adadad; }
+    .top_right_text {display: flex; align-items: center; gap: 0.5rem;   margin: 0; overflow: hidden; will-change: transform, opacity; position: relative;}
+    .top_left_text div { font-size: 1.2rem; font-weight: 600; color: #292d30;  margin: 0; display: block; overflow: hidden; will-change: transform, opacity; position: relative;}
+    .top_tag_line{font-size: 1rem; font-weight: 600;}
 }
