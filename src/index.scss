@@ -147,7 +147,8 @@ h1,h2,h3,h4,h5,h6, h1 *, h2 *, h3 * {font-family: var(--secondary-font-family);}
 .common_heading{font-size: 5rem; color: var(--white-text-color); text-transform: uppercase; letter-spacing: -0.3rem;}
 .common_para{font-size: 1rem; color: var(--white-text-color); text-transform: uppercase; font-weight: 700;}
 .common_bottom_text{font-size: 5rem; font-weight: 700; text-decoration: none; display: block; font-family: var(--secondary-font-family); width: fit-content; margin: 0 auto; display: flex; align-items: center; gap: 1rem; svg {color: #fff; transition: 1s; }}
-.common_bottom_text:hover svg{color: #7F9263; transform: rotate(45deg);}
+// .common_bottom_text svg{position: relative;}
+.common_bottom_text:hover svg{color: #7F9263; transform: translateX(10px);}
 
 .common_heading.dark{color: #262A2D; text-align: center;}
 .common_para.dark{color: #7A7A7A; text-align: center;}
