@@ -13,14 +13,19 @@ const ServicesHome = () => {
   const [selectedIndexData, setSelectedIndexData] = useState(1)
 
   const totalIndex = carouselData.length;
-  setTimeout(() => {
+  
+  const timer = setTimeout(() => {
     if(selectedIndexData < totalIndex){
       setSelectedIndexData(selectedIndexData+1)
     } else{
       setSelectedIndexData(1)
     }
     // console.log(selectedIndexData)
-  }, 2000);
+  }, 5000);
+
+  const selectedItem = carouselData.find(
+    (elem) => elem.id === selectedIndexData
+  );
   
   useEffect(() => {
     const mainImageContainer = sectionRef.current.querySelector('.carousel_image_container .main_image_container img')
@@ -28,7 +33,7 @@ const ServicesHome = () => {
     gsap.set(mainImageContainer, {width: 0})
 
     gsap.to(mainImageContainer, {width: "100%", duration: 2, ease: "power1.inOut"})
-  }, [])
+  }, [timer])
   
 
   return (
@@ -48,15 +53,15 @@ const ServicesHome = () => {
               <div className="carousel_image_container">
                 <div className="carousel">
                   <div className={`main_car_container main_car_container`}>
-                    <div className="data">Brand Identity</div>
+                    <div className="data">{selectedItem.data}</div>
                     <div className="main_container">
                       <div className="main_image_container">
-                        <img src="https://images.unsplash.com/photo-1789758385692-a1cbfb57417e" />
+                        <img src={selectedItem.image} alt={selectedItem.data} />
                       </div>
                       <ul>
-                        <li>UI Animation</li>
-                        <li>Web Design</li>
-                        <li>Android Application</li>
+                        {selectedItem.listItem.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
