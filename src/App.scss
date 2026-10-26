@@ -94,7 +94,7 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     .carousel_image_container{width: 80%; margin-left: auto; height: calc(100vh - var(--header-height)); overflow: hidden; background-color: white;
         .carousel{position: relative; height: 100%; width: 100%;}
         .main_car_container{height: 100%; width: 80%; margin-left: auto; background-color: #f9f9f9;}
-        .data{position: absolute; top: 50%; left: 0; mix-blend-mode: difference; font-size: 6rem; font-weight: 700; transform: translateY(-50%); line-height: 1; font-family: var(--secondary-font-family); }
+        .data{position: absolute; top: 50%; left: 0; mix-blend-mode: difference; font-size: 6rem; font-weight: 700; transform: translateY(-50%); line-height: 1; font-family: var(--secondary-font-family); max-width: 30rem; }
         .main_container{display: flex; color: #000; gap: 1rem; height: 100%;
             .main_image_container{height: 100%; width: 65%; overflow: hidden; max-height: 80vh; img{width: 100%; height: 100%; object-fit: cover;}} 
             ul{list-style-type: none; width: 35%; padding-top: 1.5rem; font-size: 1.1rem; font-weight: 500; display: flex; flex-direction: column; gap: 0.4rem; letter-spacing: -0.5px; }
