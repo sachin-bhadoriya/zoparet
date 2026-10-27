@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CommonHeadingBigText from '../components/CommonHeadBigText'
 import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const carouselData = [
   {id: 1, data: "Product Design", image: "https://images.unsplash.com/photo-1789758385692-a1cbfb57417e", listItem: ["Website Design", "CMS", "UI Animation"]},
@@ -12,29 +16,35 @@ const ServicesHome = () => {
   const sectionRef = useRef(null)
   const [selectedIndexData, setSelectedIndexData] = useState(1)
 
-  const totalIndex = carouselData.length;
-  
-  const timer = setTimeout(() => {
-    if(selectedIndexData < totalIndex){
-      setSelectedIndexData(selectedIndexData+1)
-    } else{
-      setSelectedIndexData(1)
-    }
-    // console.log(selectedIndexData)
-  }, 5000);
+  const totalIndex = carouselData.length
 
-  const selectedItem = carouselData.find(
-    (elem) => elem.id === selectedIndexData
-  );
-  
   useEffect(() => {
-    const mainImageContainer = sectionRef.current.querySelector('.carousel_image_container .main_image_container img')
+    const timer = setTimeout(() => {
+      setSelectedIndexData((prev) => (prev < totalIndex ? prev + 1 : 1))
+    }, 5000)
 
-    gsap.set(mainImageContainer, {width: 0})
+    return () => clearTimeout(timer)
+  }, [selectedIndexData, totalIndex])
 
-    gsap.to(mainImageContainer, {width: "100%", duration: 2, ease: "power1.inOut"})
-  }, [timer])
-  
+  // Image reveal animation: runs only when the selected item changes
+  useEffect(() => {
+    const imageContainer = sectionRef.current.querySelector(".main_image_container img");
+    const dataEl = sectionRef.current.querySelector(".data");
+
+    let split;
+
+    const ctx = gsap.context(() => {
+
+      gsap.fromTo(imageContainer, { width: "50%" }, { width: '100%', duration: 1, ease: 'power1.inOut' }
+
+        
+      )
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [selectedIndexData])
+
+  const selectedItem = carouselData.find((elem) => elem.id === selectedIndexData)
 
   return (
     <>
