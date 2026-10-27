@@ -1,5 +1,6 @@
 import Hero from "../sections/Hero"
 import OurClient from "../sections/OurClient"
+import RecongnisationHome from "../sections/RecongnisationHome"
 import SelectedProjects from "../sections/SelectedProjects"
 import ServicesHome from "../sections/ServicesHome"
 
@@ -10,6 +11,7 @@ const Home = () => {
         <SelectedProjects />
         <OurClient />
         <ServicesHome />
+        <RecongnisationHome />
     </>
   )
 }

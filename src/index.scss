@@ -81,17 +81,18 @@ html{ font-size:16px; scroll-padding-top:10rem}
 .font80{font-size:5rem}
 .font88{font-size:5.5rem}
 .font108{font-size:6.75rem}
-.fw100{font-weight:100!important}
-.fw200{font-weight:200!important}
-.fw300{font-weight:300!important}
-.fw400{font-weight:400!important}
-.fw500{font-weight:500!important}
-.fw600{font-weight:600!important}
-.fw700{font-weight:700!important}
-.fw800{font-weight:800!important}
-.fw900{font-weight:900!important}
-.color_white{color: #ffffff !important}
-.color_black{color: #000000 !important}
+.fw100{font-weight:100}
+.fw200{font-weight:200}
+.fw300{font-weight:300}
+.fw400{font-weight:400}
+.fw500{font-weight:500}
+.fw600{font-weight:600}
+.fw700{font-weight:700}
+.fw800{font-weight:800}
+.fw900{font-weight:900}
+.color_white{color: #ffffff }
+.color_black{color: #000000 }
+.color_second{color: #262a2d;}
 h1,h2,h3,h4,h5,h6, h1 *, h2 *, h3 * {font-family: var(--secondary-font-family);}
 // .color_light_blue{color:var(--theme-color-light)!important}
 // .color_theme_color_blue{color:var(--theme-color-blue)!important}
@@ -99,6 +100,7 @@ h1,h2,h3,h4,h5,h6, h1 *, h2 *, h3 * {font-family: var(--secondary-font-family);}
 .common_padding{padding-block:3rem}
 .container{max-width: 125rem; margin: 0 auto;}
 .second_container{max-width: 93.75rem; margin: 0 auto;}
+.third_container{max-width: 80rem; margin: 0 auto;}
 
 .zopa_svg{height:auto;}
 @media (min-width: 125rem) {

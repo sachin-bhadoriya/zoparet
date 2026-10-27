@@ -102,3 +102,13 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
     }
 
 }
+
+.recognition_main_container{ display: flex; gap: 2rem; align-items: center; margin-top: 5rem;
+    > * {width: calc(50% - 1rem);}
+    .recognition_left_container{background-color: red; min-height: 12rem; border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;}
+    .recognition_right_container{
+        .content_container{ border-bottom: 1px solid #dadada; padding: 1.3rem 0; &:last-child{border-bottom: none;}
+            .inside_content_container{display: flex; justify-content: space-between; align-items: center; margin-top: 12px;}
+        }
+    }
+}
