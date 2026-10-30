@@ -35,7 +35,7 @@ const ServicesHome = () => {
 
     const ctx = gsap.context(() => {
 
-      gsap.fromTo(imageContainer, { width: "50%" }, { width: '100%', duration: 1, ease: 'power1.inOut' }
+      gsap.fromTo(imageContainer, { width: "00%" }, { width: '100%', duration: 1, ease: 'power1.inOut' }
 
         
       )
